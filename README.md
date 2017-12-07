@@ -1,49 +1,24 @@
-# ml-docker
-For building chihchiu29/ml-swiss-army-knife image.
+# PAIO
+Python-All-In-One Docker image for text-based ML tasks.
 
-The image is meant to be the all-in-one image for ML/DL. It contains commonly used DL tools and engineering tools.
+## Tech Details
 
-# Quickstart
+### Chrome WebDriver
 
-* To start the docker image, use `run_image.sh`. It support the following running modes:
-  - With no subcommand. This will start Jupyter.
-  - With subcommand "sshd". This will start the container as a ssdh server.
-  - With other subcommand. The subcommand will be executed in the container.
-* To update the `chihchiu29/ml-swiss-army-knife` image, use `update_image.sh`.
-* The `external` folder is mapped to `/workspace/external` in the container.
+Chrome needs to be started under headless mode. Example:
 
-# Included Tools
-
-## ML/DL
-
-* numpy / scipy / sympy / pandas / matplotlib
-* Jupyter (with widget enabled)
-* TensorFlow
-* scikit
-* keras
-
-## Image processing / NLP / Visualization tools
-
-* OpenCV, tesseract, skimage
-* nltk, spacy, mahotas
-* scrapy
-* graphviz, bokeh
-
-## System tools
-
-* git
-* sshd
-* byobu
-* wget, curl
-* emacs (nox), ne, nano
-* zip
-
-# Trouble Shooting
-
-* No space left on device error (during running `update_image.sh`)
-Try:
 ```
-docker rm $(docker ps -q -f 'status=exited')
-docker rmi $(docker images -q -f "dangling=true")
+from selenium import webdriver
+
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+driver = webdriver.Chrome(chrome_options=options)
+
+driver.get('https://www.w3schools.com/')
+print(driver.find_element_by_css_selector('h1').text)
+
+driver.quit()
 ```
-Then update again.
+
+You should see output "HTML".
