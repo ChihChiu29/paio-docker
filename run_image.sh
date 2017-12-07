@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-image_name=test
+image_name="chihchiu29/paio-docker"
 
 function show_usage() {
     echo
