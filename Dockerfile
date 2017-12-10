@@ -30,7 +30,7 @@ RUN pip install spacy nltk
 
 
 # Other Python libraries
-RUN pip install retrying joblib
+RUN pip install retrying joblib absl-py
 
 
 # Chrome and Selenium WebDriver
