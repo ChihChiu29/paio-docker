@@ -29,8 +29,9 @@ RUN pip install scikit-learn keras
 RUN pip install spacy nltk
 
 
-# Other Python libraries
-RUN pip install retrying joblib absl-py
+# Other libraries
+RUN pip install retrying joblib absl-py protobuf
+RUN aptitude install -y protobuf-compiler
 
 
 # Chrome and Selenium WebDriver
