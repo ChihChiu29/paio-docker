@@ -30,8 +30,7 @@ RUN pip install spacy nltk
 
 
 # Other libraries
-RUN pip install retrying joblib absl-py protobuf
-RUN aptitude install -y protobuf-compiler
+RUN pip install retrying joblib absl-py jsonpickle
 
 
 # Chrome and Selenium WebDriver
