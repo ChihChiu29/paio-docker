@@ -14,14 +14,6 @@ function show_usage() {
 
 show_usage
 
-# Get docker machine IP if exists.
-if [ x$(docker-machine ls --quiet) == "x" ]
-then
-    machine_ip="localhost"
-else
-    machine_ip=$(docker-machine ip default)
-fi
-
 if [ $# == 0 ]
 then
     echo
@@ -32,6 +24,12 @@ then
     docker run -it -v $(pwd)/external:/workspace/external "${image_name}" bash
 elif [ $# == 1 ] && [ $1 == "notebook" ]
 then
+    # Get docker machine IP if exists.
+    if [ x$(docker-machine ls --quiet) == "x" ]; then
+        machine_ip="localhost"
+    else
+        machine_ip=$(docker-machine ip default)
+    fi
     echo
     echo "------------------------------------------------------------"
     echo "The external directory is mounted under /workspace/external."
