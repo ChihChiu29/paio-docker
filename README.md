@@ -23,3 +23,7 @@ driver.quit()
 ```
 
 You should see output "HTML".
+
+### Chrome Version
+
+Google Chrome 63.0.3239.84             
