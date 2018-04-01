@@ -26,7 +26,7 @@ RUN pip install scikit-learn keras
 
 
 # Text Processing
-RUN pip install spacy nltk
+RUN pip install spacy nltk textblob
 
 
 # Other libraries
