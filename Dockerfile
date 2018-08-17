@@ -64,4 +64,4 @@ RUN jupyter nbextension enable --py widgetsnbextension
 
 
 # Default command.
-CMD ["jupyter", "notebook", "--allow-root", "--NotebookApp.iopub_data_rate_limit=10000000000"]
+CMD ["jupyter", "lab", "--allow-root"]
