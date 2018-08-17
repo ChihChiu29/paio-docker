@@ -18,7 +18,7 @@ RUN pip install --upgrade pip
 
 # Python Scientific libraries.
 RUN pip install numpy scipy matplotlib pandas
-RUN pip install jupyter
+RUN pip install jupyter jupyterlab
 
 
 # ML/DL libraries.

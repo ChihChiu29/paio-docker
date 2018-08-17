@@ -22,7 +22,7 @@ then
     echo "------------------------------------------------------------"
     echo 
     docker run -it -v $(pwd)/external:/workspace/external "${image_name}" bash
-elif [ $# == 1 ] && [ $1 == "notebook" ]
+elif [ $# == 1 ] && [ $1 == "lab" ]
 then
     # Get docker machine IP if exists.
     if [ x$(docker-machine ls --quiet) == "x" ]; then
