@@ -24,7 +24,7 @@ then
     echo "The external directory is mounted under /workspace/external."
     echo "------------------------------------------------------------"
     echo 
-    docker run -it -v $(pwd)/external:/workspace/external "${image_name}" bash
+    docker run -it -p 8888:8888 -v $(pwd)/external:/workspace/external "${image_name}" bash
 elif [ $# == 1 ] && [ $1 == "lab" ]
 then
     echo

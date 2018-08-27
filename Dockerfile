@@ -12,6 +12,7 @@ RUN aptitude install -y python3-pip
 RUN aptitude install -y byobu wget psmisc unzip
 RUN aptitude install -y ne
 RUN aptitude install -y git
+RUN aptitude install -y xvfb swig
 RUN ln -s `which pip3` /usr/local/bin/pip
 RUN pip install --upgrade pip
 
@@ -23,6 +24,7 @@ RUN pip install jupyter jupyterlab
 
 # ML/DL libraries.
 RUN pip install scikit-learn keras
+RUN pip install gym[all]
 
 
 # Text Processing
@@ -64,4 +66,5 @@ RUN jupyter nbextension enable --py widgetsnbextension
 
 
 # Default command.
-CMD ["jupyter", "lab", "--allow-root"]
+CMD xvfb-run -s "-screen 0 1400x900x24"\
+    jupyter lab --port=8888 --allow-root
