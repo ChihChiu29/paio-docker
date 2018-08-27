@@ -10,6 +10,9 @@ function show_usage() {
     echo "3) Run with other subcommands to run them in docker."
     echo "------------------------------------------------------------"
     echo
+    if [ x$(docker-machine ls --quiet) != "x" ]; then
+      echo "IP: $(docker-machine ip default)"
+    fi
 }
 
 show_usage
@@ -24,19 +27,13 @@ then
     docker run -it -v $(pwd)/external:/workspace/external "${image_name}" bash
 elif [ $# == 1 ] && [ $1 == "lab" ]
 then
-    # Get docker machine IP if exists.
-    if [ x$(docker-machine ls --quiet) == "x" ]; then
-        machine_ip="localhost"
-    else
-        machine_ip=$(docker-machine ip default)
-    fi
     echo
     echo "------------------------------------------------------------"
     echo "The external directory is mounted under /workspace/external."
     echo "To quit Jupyter, press ctrl-c twice."
     echo "------------------------------------------------------------"
     echo
-    docker run -it -p 8888:8888 -v $(pwd)/external:/workspace/external "${image_name}" | sed s/localhost/${machine_ip}/g
+    docker run -it -p 8888:8888 -v $(pwd)/external:/workspace/external "${image_name}"
 else
     echo
     echo "------------------------------------------------------------"
