@@ -8,7 +8,7 @@ RUN apt-get -y update && apt-get install -y aptitude
 
 # System base.
 RUN aptitude install -y cmake libgtk2.0-dev pkg-config
-RUN aptitude install -y python3-pip
+RUN aptitude install -y python3-pip python3-tk
 RUN aptitude install -y byobu wget psmisc unzip
 RUN aptitude install -y ne
 RUN aptitude install -y git
