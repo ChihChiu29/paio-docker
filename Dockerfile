@@ -8,7 +8,7 @@ RUN apt-get -y update && apt-get install -y aptitude
 
 # System base.
 RUN aptitude install -y cmake libgtk2.0-dev pkg-config
-RUN aptitude install -y python3-pip
+RUN aptitude install -y python3-pip python-opengl
 # Set variable to avoid interactive prompt during installation.
 RUN DEBIAN_FRONTEND=noninteractive aptitude install -y python3-tk
 RUN aptitude install -y byobu wget psmisc unzip
@@ -27,7 +27,7 @@ RUN pip install statsmodels fbprophet
 
 # ML/DL libraries.
 RUN pip install scikit-learn keras
-RUN pip install gym[all]
+RUN pip install gym gym-tetris gym-sudoku gym-risk gym-hearts gym-square gym-starter-kit gym-super-mario-bros gym-retro
 
 
 # Text Processing
