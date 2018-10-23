@@ -22,7 +22,8 @@ RUN pip install --upgrade pip
 # Python Scientific libraries.
 RUN pip install numpy scipy matplotlib pandas
 RUN pip install jupyter jupyterlab
-RUN pip install statsmodels
+RUN pip install statsmodels fbprophet
+
 
 # ML/DL libraries.
 RUN pip install scikit-learn keras
