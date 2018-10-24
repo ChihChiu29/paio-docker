@@ -27,7 +27,7 @@ RUN pip install statsmodels fbprophet
 
 # ML/DL libraries.
 RUN pip install scikit-learn keras
-RUN pip install gym gym-tetris gym-sudoku gym-risk gym-hearts gym-square gym-starter-kit gym-super-mario-bros gym-retro
+RUN pip install gym gym-starter-kit gym-retro gym-tetris gym-super-mario-bros gym-sudoku gym-risk
 
 
 # Text Processing
