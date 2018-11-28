@@ -15,7 +15,7 @@ RUN aptitude install -y byobu wget psmisc unzip
 RUN aptitude install -y ne
 RUN aptitude install -y git
 RUN aptitude install -y xvfb swig
-RUN ln -s `which pip3` /usr/local/bin/pip
+RUN rm /usr/local/bin/pip && ln -s `which pip3` /usr/local/bin/pip
 RUN pip install --upgrade pip
 
 
