@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM tensorflow/tensorflow:latest-py3
 
 MAINTAINER Chih Chiu <chih.chiu.19@gmail.com>
 
@@ -56,8 +56,8 @@ RUN pip install graphviz ipywidgets
 
 
 # Apt clean up
-# RUN apt-get -y clean
-# RUN apt-get -y autoclean
+RUN apt-get -y clean
+RUN apt-get -y autoclean
 
 
 # Config/Environment setup.
