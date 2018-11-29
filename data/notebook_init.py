@@ -1,18 +1,14 @@
 """Provides an easy to use notebook environment."""
 # For notebook setup.
 import importlib
-import inspect
 import os
-import re
 import sys
 
 # For actual work.
-import gym
 import numpy as np
 import scipy
 import pandas as pd
 from IPython import display
-from typing import List
 from matplotlib import pyplot as plt
 
 _EXTERNAL_ROOT = '/workspace/external/'
@@ -64,15 +60,3 @@ def ReloadProject(project_name: str) -> None:
           print('imported: ' + module_name)
       except Exception as e:
         print('error loading module %s: %s' % (module_name, e))
-
-
-def _ReloadModules(module_name_regex: str) -> None:
-  """Reload modules whose names match the given regex."""
-  matcher = re.compile(module_name_regex)
-  for module_name, module in sys.modules.items():
-    if matcher.match(module_name):
-      try:
-        importlib.reload(module)
-        print('reloaded: ' + module_name)
-      except NotImplementedError:
-        pass
