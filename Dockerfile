@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM tensorflow/tensorflow:latest-py3
 
 MAINTAINER Chih Chiu <chih.chiu.19@gmail.com>
 
@@ -15,7 +15,7 @@ RUN aptitude install -y byobu wget psmisc unzip
 RUN aptitude install -y ne
 RUN aptitude install -y git
 RUN aptitude install -y xvfb swig
-RUN ln -s `which pip3` /usr/local/bin/pip
+RUN rm /usr/local/bin/pip && ln -s `which pip3` /usr/local/bin/pip
 RUN pip install --upgrade pip
 
 
@@ -56,8 +56,8 @@ RUN pip install graphviz ipywidgets
 
 
 # Apt clean up
-# RUN apt-get -y clean
-# RUN apt-get -y autoclean
+RUN apt-get -y clean
+RUN apt-get -y autoclean
 
 
 # Config/Environment setup.
