@@ -41,7 +41,8 @@ def ReloadProject(project_name: str) -> None:
     filenames[:] = [
         filename for filename in filenames 
         if not filename.startswith(_EXCLUDE_PREFIXES) and 
-        filename.endswith(_PYTHON_SUFFIX)]
+        filename.endswith(_PYTHON_SUFFIX) and
+        not 'test' in filename]
 
     if filenames:
       package_name = current_dir[project_root_len+1:].replace('/', '.')
