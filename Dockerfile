@@ -63,9 +63,10 @@ RUN pip install graphviz ipywidgets
 # Config/Environment setup.
 WORKDIR "/workspace"
 COPY data/dot_bashrc /root/.bashrc
-#RUN mkdir /root/.jupyter/
 COPY data/jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 RUN jupyter nbextension enable --py widgetsnbextension
+RUN mkdir -p /root/.ipython/profile_default/startup/
+COPY data/notebook_init.py /root/.ipython/profile_default/startup
 
 
 # Default command.
