@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-image_name="kdelfour/cloud9-docker"
+image_name="chihchiu29/cloud9"
 
 echo
 echo "------------------------------------------------------------"
