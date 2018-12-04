@@ -44,8 +44,12 @@ def ReloadProject(project_name: str) -> None:
 
   for symbol_name in dir(notebook_init):
     symbol = eval(_NOTEBOOK_INIT + '.' + symbol_name)
+    # Reload modules.
     if hasattr(symbol, '__loader__'):
       importlib.reload(symbol)
+      print('reloaded: ' + symbol_name)
+    # Forward all public symbols.
+    if not symbol_name.startswith('_'):
       exec('global %s; %s = %s.%s' % (
           symbol_name, symbol_name, _NOTEBOOK_INIT, symbol_name))
-      print('reloaded: ' + symbol_name)
+      print('forwarded symbol: ' + symbol_name)
