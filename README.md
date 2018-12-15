@@ -3,6 +3,9 @@ Python-All-In-One Docker image for text-based ML tasks.
 
 ## Tech Details
 
+### OpenAi Gym
+Atari and classics are supported.
+
 ### Chrome WebDriver
 
 Chrome needs to be started under headless mode. Example:
