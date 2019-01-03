@@ -35,7 +35,7 @@ RUN pip install spacy nltk textblob
 
 
 # Other libraries
-RUN pip install retrying joblib absl-py jsonpickle
+RUN pip install retrying joblib absl-py jsonpickle JSAnimation
 
 
 # Chrome and Selenium WebDriver
