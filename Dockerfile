@@ -25,9 +25,11 @@ RUN pip install jupyter jupyterlab
 RUN pip install statsmodels fbprophet
 
 
-# ML/DL libraries.
+# ML/DL/RL libraries.
 RUN pip install scikit-learn keras
-RUN pip install gym gym-starter-kit gym-retro gym-tetris gym-super-mario-bros gym-sudoku gym-risk atari-py
+RUN pip install gym gym-starter-kit gym-risk atari-py
+RUN pip install gym-retro gym-tetris gym-sudoku
+RUN pip install gym-super-mario-bros
 
 
 # Text Processing
