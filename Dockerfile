@@ -29,7 +29,8 @@ RUN pip install statsmodels fbprophet
 RUN pip install scikit-learn keras
 RUN pip install gym gym-starter-kit gym-risk atari-py
 RUN pip install gym-retro gym-tetris gym-sudoku
-RUN pip install gym-super-mario-bros
+# Causing errors:
+# gym-super-mario-bros
 
 
 # Text Processing
