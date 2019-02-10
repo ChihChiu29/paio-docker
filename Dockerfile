@@ -29,6 +29,8 @@ RUN pip install statsmodels fbprophet
 RUN pip install scikit-learn keras
 RUN pip install gym gym-starter-kit gym-risk atari-py
 RUN pip install gym-retro gym-tetris gym-sudoku
+# OpenAI baselines algorithms: https://github.com/openai/baselines
+RUN pip install baselines
 # Causing errors:
 # gym-super-mario-bros
 
@@ -38,7 +40,7 @@ RUN pip install spacy nltk textblob
 
 
 # Other libraries
-RUN pip install retrying joblib absl-py jsonpickle JSAnimation
+RUN pip install retrying joblib absl-py cloudpickle jsonpickle JSAnimation
 
 
 # Chrome and Selenium WebDriver
