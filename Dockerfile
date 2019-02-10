@@ -26,11 +26,9 @@ RUN pip install statsmodels fbprophet
 
 
 # ML/DL/RL libraries.
-RUN pip install scikit-learn keras
+RUN pip install scikit-learn keras torch
 RUN pip install gym gym-starter-kit gym-risk atari-py
 RUN pip install gym-retro gym-tetris gym-sudoku
-# OpenAI baselines algorithms: https://github.com/openai/baselines
-RUN pip install baselines
 # Causing errors:
 # gym-super-mario-bros
 
