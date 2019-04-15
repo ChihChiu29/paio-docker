@@ -10,12 +10,15 @@ function show_usage() {
     echo "3) Run with other subcommands to run them in docker."
     echo "------------------------------------------------------------"
     echo
-    if [ x$(docker-machine ls --quiet) != "x" ]; then
+    if [ x$(which docker-machine) != "x" ] && [ x$(docker-machine ls --quiet) != "x" ]; then
       echo "IP: $(docker-machine ip default)"
     fi
 }
 
 show_usage
+
+xhost +
+flags="-it -p 8888:8888 --rm -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v $(pwd)/external:/workspace/external ${image_name}"
 
 if [ $# == 0 ]
 then
@@ -24,7 +27,7 @@ then
     echo "The external directory is mounted under /workspace/external."
     echo "------------------------------------------------------------"
     echo 
-    docker run -it -p 8888:8888 -v $(pwd)/external:/workspace/external "${image_name}" bash
+    docker run ${flags} bash
 elif [ $# == 1 ] && [ $1 == "lab" ]
 then
     echo
@@ -33,12 +36,12 @@ then
     echo "To quit Jupyter, press ctrl-c twice."
     echo "------------------------------------------------------------"
     echo
-    docker run -it -p 8888:8888 -v $(pwd)/external:/workspace/external "${image_name}"
+    docker run ${flags}
 else
     echo
     echo "------------------------------------------------------------"
     echo "The external directory is mounted under /workspace/external."
     echo "------------------------------------------------------------"
     echo 
-    docker run -it -v $(pwd)/external:/workspace/external "${image_name}" "$@"
+    docker run ${flags} "$@"
 fi
