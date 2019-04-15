@@ -18,7 +18,7 @@ function show_usage() {
 show_usage
 
 xhost +
-flags="-it -p 8888:8888 --rm -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v $(pwd)/external:/workspace/external ${image_name}"
+flags="-it -p 8888:8888 --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $(pwd)/external:/workspace/external ${image_name}"
 
 if [ $# == 0 ]
 then
