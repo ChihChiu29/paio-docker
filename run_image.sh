@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-image_name="chihchiu29/paio-docker"
+# image_name="chihchiu29/paio-docker"
+image_name="test"
 
 function show_usage() {
     echo

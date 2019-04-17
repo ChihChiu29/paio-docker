@@ -11,18 +11,17 @@ RUN aptitude install -y cmake libgtk2.0-dev pkg-config
 RUN aptitude install -y python3-pip python-opengl
 # Set variable to avoid interactive prompt during installation.
 RUN DEBIAN_FRONTEND=noninteractive aptitude install -y python3-tk
-RUN aptitude install -y byobu wget psmisc unzip
+RUN aptitude install -y byobu wget psmisc unzip zip
 RUN aptitude install -y ne
 RUN aptitude install -y git
 RUN aptitude install -y xvfb swig
 RUN rm /usr/local/bin/pip && ln -s `which pip3` /usr/local/bin/pip
 RUN pip install --upgrade pip
 
-
 # Python Scientific libraries.
 RUN pip install numpy scipy matplotlib pandas
 RUN pip install jupyter jupyterlab
-RUN pip install statsmodels fbprophet
+RUN pip install statsmodels
 
 
 # ML/DL/RL libraries.
@@ -41,10 +40,23 @@ RUN pip install spacy nltk textblob
 RUN pip install retrying joblib absl-py cloudpickle jsonpickle JSAnimation
 
 
+# PyCharm
+RUN mkdir /opt/pycharm
+ADD https://download.jetbrains.com/python/pycharm-community-2019.1.tar.gz /opt/pycharm/installer.tgz
+RUN tar --strip-components=1 -xzf /opt/pycharm/installer.tgz && rm /opt/pycharm/installer.tgz
+
+COPY data/dot_PyCharmCE2019.1.zip /root/
+RUN unzip /root/dot_PyCharmCE2019.1.zip -d /root/
+RUN rm /root/dot_PyCharmCE2019.1.zip
+COPY data/dot_java.zip /root/
+RUN unzip /root/dot_java.zip -d /root/
+RUN rm /root/dot_java.zip
+
+
 # Chrome and Selenium WebDriver
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-RUN apt-get install -y google-chrome-stable
+RUN apt-get -y update && apt-get install -y google-chrome-stable
 
 RUN wget -q --continue -P ~/ "http://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip"
 RUN unzip ~/chromedriver_linux64.zip -d /usr/local/bin
