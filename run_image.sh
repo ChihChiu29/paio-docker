@@ -17,8 +17,16 @@ function show_usage() {
 
 show_usage
 
+
+IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+if [ "x${IP}" == "x" ]; then
+    DISP=$DISPLAY
+else
+    DISP=$IP:0
+fi
+
 xhost +
-flags="-it -p 8888:8888 --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $(pwd)/external:/workspace/external ${image_name}"
+flags="-it -p 8888:8888 --rm -e DISPLAY=$DISP -v /tmp/.X11-unix:/tmp/.X11-unix -v $(pwd)/external:/workspace/external ${image_name}"
 
 if [ $# == 0 ]
 then
