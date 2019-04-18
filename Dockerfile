@@ -18,6 +18,13 @@ RUN aptitude install -y xvfb swig
 RUN rm /usr/local/bin/pip && ln -s `which pip3` /usr/local/bin/pip
 RUN pip install --upgrade pip
 
+
+# ImageMagick
+RUN aptitude install -y imagemagick
+RUN rm /etc/ImageMagick-6/policy.xml
+COPY data/imagemagick_policy.xml /etc/ImageMagick-6/policy.xml
+
+
 # Python Scientific libraries.
 RUN pip install numpy scipy matplotlib pandas
 RUN pip install jupyter jupyterlab
