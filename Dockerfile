@@ -40,7 +40,7 @@ RUN pip install gym-retro gym-tetris gym-sudoku
 
 
 # Text Processing
-RUN pip install spacy nltk textblob
+RUN pip install spacy nltk textblob tweepy
 
 
 # Other libraries
