@@ -40,11 +40,11 @@ RUN pip install gym-retro gym-tetris gym-sudoku
 
 
 # Text Processing
-RUN pip install spacy nltk textblob tweepy
+RUN pip install spacy nltk textblob tweepy vaderSentiment
 
 
 # Other libraries
-RUN pip install retrying joblib absl-py cloudpickle jsonpickle JSAnimation
+RUN pip install flask retrying joblib absl-py cloudpickle jsonpickle JSAnimation
 
 
 # PyCharm
