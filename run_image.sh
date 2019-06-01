@@ -26,6 +26,7 @@ else
 fi
 
 xhost +
+port_flags='-p 8888:8888 -p 8080:8080 -p 5000:5000 -p 8000:8000 -p 80:80'
 flags="-it -e DISPLAY=$DISP -v /tmp/.X11-unix:/tmp/.X11-unix -v $(pwd)/external:/workspace/external ${image_name}"
 
 if [ $# == 0 ]
@@ -35,7 +36,7 @@ then
     echo "The external directory is mounted under /workspace/external."
     echo "------------------------------------------------------------"
     echo 
-    docker '-p 8888:8888' run ${flags} bash
+    docker run ${port_flags} ${flags} bash
 elif [ $# == 1 ] && [ $1 == "lab" ]
 then
     echo
@@ -44,7 +45,7 @@ then
     echo "To quit Jupyter, press ctrl-c twice."
     echo "------------------------------------------------------------"
     echo
-    docker run '-p 8888:8888' ${flags}
+    docker run ${port_flags} ${flags}
 else
     echo
     echo "------------------------------------------------------------"
