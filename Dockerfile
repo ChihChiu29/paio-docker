@@ -29,6 +29,9 @@ COPY data/imagemagick_policy.xml /etc/ImageMagick-6/policy.xml
 RUN pip install numpy scipy matplotlib pandas
 RUN pip install jupyter jupyterlab
 RUN pip install statsmodels
+RUN pip install --upgrade Cython
+RUN pip install --upgrade git+https://github.com/statsmodels/statsmodels
+
 
 
 # ML/DL/RL libraries.
