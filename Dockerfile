@@ -32,7 +32,7 @@ RUN pip install statsmodels
 
 
 # ML/DL/RL libraries.
-RUN pip install scikit-learn keras torch
+RUN pip install scikit-learn keras torch torchvision
 RUN pip install gym gym-starter-kit gym-risk atari-py
 RUN pip install gym-retro gym-tetris gym-sudoku
 # Causing errors:
