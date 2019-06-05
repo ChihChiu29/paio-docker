@@ -43,7 +43,7 @@ RUN pip install gym-retro gym-tetris gym-sudoku
 
 
 # Text Processing
-RUN pip install spacy nltk textblob tweepy vaderSentiment
+RUN pip install spacy nltk textblob tweepy vaderSentiment googletrans
 
 
 # Other libraries
