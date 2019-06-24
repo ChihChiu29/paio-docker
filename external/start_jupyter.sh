@@ -1,2 +1,2 @@
 #! /usr/bin/env bash
-jupyter notebook
+jupyter notebook --allow-root
