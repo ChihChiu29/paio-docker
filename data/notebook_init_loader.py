@@ -25,18 +25,18 @@ def ReloadProject(project_name: str) -> None:
   Args:
     project_name: a project is a directory under `/workspaces/external/`.
   """
-  project_root = os.path.join(_EXTERNAL_ROOT, project_name)
-  if project_root not in sys.path:
-    if os.path.exists(project_root):
-      sys.path.append(project_root)
-      print('Path %s added to PYTHON_PATH.' % project_root)
-    else:
-      print('Path %s does not exist.' % project_root)
-      return
+  if _EXTERNAL_ROOT not in sys.path:
+    sys.path.append(_EXTERNAL_ROOT)
+    print('Path %s added to PYTHON_PATH.' % _EXTERNAL_ROOT)
 
+  project_root = os.path.join(_EXTERNAL_ROOT, project_name)
   if not os.path.exists(os.path.join(project_root, _NOTEBOOK_INIT + '.py')):
     print(_NOTEBOOK_INIT + '.py not found from project directory.')
     return
+  else:
+    if project_root not in sys.path:
+     sys.path.append(project_root)
+     print('Path %s added to PYTHON_PATH.' % project_root)
 
   import notebook_init
   importlib.reload(notebook_init)
