@@ -62,10 +62,10 @@ RUN rm /root/dot_java.zip
 
 
 # Chromium and Selenium WebDriver
-RUN apt install chromium-browser
-RUN apt install chromium-driver
+RUN apt -y install chromium-browser
+RUN apt -y install chromium-driver
 RUN pip install selenium
-RUN apt-get -y install xautomation
+RUN apt -y install xautomation
 
 
 # Misc
