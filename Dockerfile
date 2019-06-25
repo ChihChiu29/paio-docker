@@ -38,8 +38,6 @@ RUN pip install --upgrade git+https://github.com/statsmodels/statsmodels
 RUN pip install scikit-learn keras torch torchvision
 RUN pip install gym gym-starter-kit gym-risk atari-py
 RUN pip install gym-retro gym-tetris gym-sudoku
-# Causing errors:
-# gym-super-mario-bros
 
 
 # Text Processing
