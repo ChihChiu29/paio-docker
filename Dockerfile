@@ -63,15 +63,9 @@ RUN unzip /root/dot_java.zip -d /root/
 RUN rm /root/dot_java.zip
 
 
-# Chrome and Selenium WebDriver
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-RUN apt-get -y update && apt-get install -y google-chrome-stable
-
-RUN wget -q --continue -P ~/ "http://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip"
-RUN unzip ~/chromedriver_linux64.zip -d /usr/local/bin
-RUN rm ~/chromedriver_linux64.zip
-
+# Chromium and Selenium WebDriver
+RUN apt install chromium-browser
+RUN apt install chromium-driver
 RUN pip install selenium
 RUN apt-get -y install xautomation
 
