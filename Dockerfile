@@ -33,7 +33,6 @@ RUN pip install --upgrade Cython
 RUN pip install --upgrade git+https://github.com/statsmodels/statsmodels
 
 
-
 # ML/DL/RL libraries.
 RUN pip install scikit-learn keras torch torchvision
 RUN pip install gym gym-starter-kit gym-risk atari-py
@@ -44,8 +43,9 @@ RUN pip install gym-retro gym-tetris gym-sudoku
 RUN pip install spacy nltk textblob tweepy vaderSentiment googletrans
 
 
-# Other libraries
+# Other Python libraries
 RUN pip install flask retrying joblib absl-py cloudpickle jsonpickle JSAnimation
+RUN apt install -y python3-bs4
 
 
 # PyCharm
