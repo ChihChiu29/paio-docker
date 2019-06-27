@@ -88,5 +88,6 @@ COPY data/notebook_init_loader.py /root/.ipython/profile_default/startup
 
 
 # Default command.
-CMD xvfb-run -s "-screen 0 1400x900x24"\
-    jupyter lab --port=8888 --allow-root
+# Enable if X-forward is no longer used.
+# CMD xvfb-run -s "-screen 0 1400x900x24"\
+# CMD jupyter lab --port=8888 --allow-root
