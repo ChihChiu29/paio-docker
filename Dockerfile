@@ -69,7 +69,7 @@ RUN apt -y install xautomation
 
 
 # Misc
-RUN aptitude install -y graphviz libgraphviz-dev
+RUN apt install -y graphviz libgraphviz-dev cron
 RUN pip install graphviz ipywidgets
 
 
@@ -79,15 +79,14 @@ RUN apt-get -y autoclean
 
 
 # Config/Environment setup.
-WORKDIR "/workspace"
 COPY data/dot_bashrc /root/.bashrc
 COPY data/jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 RUN jupyter nbextension enable --py widgetsnbextension
 RUN mkdir -p /root/.ipython/profile_default/startup/
 COPY data/notebook_init_loader.py /root/.ipython/profile_default/startup
-
+WORKDIR "/workspace/external"
 
 # Default command.
 # Enable if X-forward is no longer used.
 # CMD xvfb-run -s "-screen 0 1400x900x24"\
-# CMD jupyter lab --port=8888 --allow-root
+CMD jupyter lab --port=8888 --allow-root
