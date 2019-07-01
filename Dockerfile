@@ -71,6 +71,8 @@ RUN apt -y install xautomation
 # Misc
 RUN apt install -y graphviz libgraphviz-dev cron
 RUN pip install graphviz ipywidgets
+# Some latex packages that help to export notebooks into pdfs.
+RUN apt install -y apt texlive-xetex
 
 
 # Apt clean up
