@@ -41,6 +41,8 @@ RUN pip install gym-retro gym-tetris gym-sudoku
 
 # Text Processing
 RUN pip install spacy nltk textblob tweepy vaderSentiment googletrans
+RUN apt install -y tesseract-ocr-eng
+RUN pip install pytesseract
 
 
 # Other Python libraries
