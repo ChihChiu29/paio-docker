@@ -25,35 +25,14 @@ else
     DISP=$IP:0
 fi
 
-port_flags='-p 8888:8888 -p 8080:8080 -p 5000:5000 -p 8000:8000 -p 80:80'
+port_flags='-p 8888:8888 -p 8080:8080 -p 5000:5000 -p 8000:8000 -p 80:80 -p 9222:9222'
 flags="-it -e DISPLAY=$DISP -v /tmp/.X11-unix:/tmp/.X11-unix -v $(pwd)/external:/workspace/external ${image_name}"
 
-if [ $# == 0 ]
-then
-    echo
-    echo "------------------------------------------------------------"
-    echo "The external directory is mounted under /workspace/external."
-    echo "------------------------------------------------------------"
-    echo 
-    xhost +
-    docker run ${port_flags} ${flags} bash
-elif [ $# == 1 ] && [ $1 == "lab" ]
-then
-    echo
-    echo "------------------------------------------------------------"
-    echo "The external directory is mounted under /workspace/external."
-    echo "To quit Jupyter, press ctrl-c twice."
-    echo "------------------------------------------------------------"
-    echo
-    xhost +
-    docker run ${port_flags} ${flags}
-else
-    echo
-    echo "------------------------------------------------------------"
-    echo "The external directory is mounted under /workspace/external."
-    echo "------------------------------------------------------------"
-    echo 
-    # This running mode is intended to be used by machine jobs.
-    # Do not do "xhost +" since it does not work from crob jobs.
-    docker run ${flags} "$@"
-fi
+echo
+echo "------------------------------------------------------------"
+echo "The external directory is mounted under /workspace/external."
+echo "------------------------------------------------------------"
+echo
+xhost +
+echo "Running: docker run ${port_flags} ${flags} $@"
+docker run ${port_flags} ${flags} "$@"

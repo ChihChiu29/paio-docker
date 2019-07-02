@@ -103,10 +103,8 @@ RUN mkdir -p /root/.ipython/profile_default/startup/
 COPY data/notebook_init_loader.py /root/.ipython/profile_default/startup
 WORKDIR "/workspace/external"
 
-# Autorun
-ENTRYPOINT "/workspace/external/startup.sh"
-
 # Default command.
 # Enable if X-forward is no longer used.
 # CMD xvfb-run -s "-screen 0 1400x900x24"\
-CMD jupyter lab --port=8888 --allow-root
+# CMD jupyter lab --port=8888 --allow-root
+CMD /bin/bash /workspace/external/startme.sh
