@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-image_name="chihchiu29/paio-docker"
+# image_name="chihchiu29/paio-docker"
+image_name="test"
 
 function show_usage() {
     echo
@@ -34,5 +35,5 @@ echo "The external directory is mounted under /workspace/external."
 echo "------------------------------------------------------------"
 echo
 xhost +
-echo "Running: docker run ${port_flags} ${flags} $@"
-docker run ${port_flags} ${flags} "$@"
+echo "Running: docker run ${port_flags} ${flags} /workspace/external/startme.sh $@"
+docker run ${port_flags} ${flags} /workspace/external/startme.sh "$@"
