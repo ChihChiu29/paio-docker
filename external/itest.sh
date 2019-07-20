@@ -5,13 +5,13 @@ then
   echo "Usage: itests.sh <directory>"
   exit -1
 else
-  nosetests
-  while inotifywait -r -e modify deep_learning/engine/
+  nosetests -v; echo "Watching changes in $1..."
+  while inotifywait -r -e modify $1
   do
     echo
     echo
     echo
     echo "===================================================================================================="
-    nosetests
+    nosetests -v; echo "Watching changes in $1..."
   done
 fi
