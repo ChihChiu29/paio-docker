@@ -6,5 +6,5 @@ then
   exit -1
 else
   nosetests
-  while inotifywait -r -e modify deep_learning/engine/; do echo "===== CHANGE DETECTED ====="; nosetests; done
+  while inotifywait -r -e modify deep_learning/engine/; do echo; echo; echo "===== CHANGE DETECTED ====="; nosetests; done
 fi
