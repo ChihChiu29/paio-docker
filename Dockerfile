@@ -47,7 +47,7 @@ RUN pip install pytesseract
 
 # Other Python libraries
 RUN pip install flask retrying joblib absl-py cloudpickle jsonpickle JSAnimation websocket-client nose
-RUN apt install -y python3-bs4
+RUN apt install -y python3-bs4 inotify-tools
 
 
 # PyCharm
