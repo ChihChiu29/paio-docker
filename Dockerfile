@@ -98,6 +98,7 @@ RUN apt-get -y autoclean
 # Config/Environment setup.
 COPY data/dot_bashrc /root/.bashrc
 COPY data/jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
+RUN mkdir -p /root/.keras/
 COPY data/dot_keras__keras.json /root/.keras/keras.json
 RUN jupyter nbextension enable --py widgetsnbextension
 RUN mkdir -p /root/.ipython/profile_default/startup/
