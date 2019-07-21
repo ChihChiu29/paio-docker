@@ -34,7 +34,7 @@ RUN pip install --upgrade git+https://github.com/statsmodels/statsmodels
 
 
 # ML/DL/RL libraries.
-RUN pip install scikit-learn keras torch torchvision
+RUN pip install scikit-learn keras torch torchvision Theano
 RUN pip install gym gym-starter-kit gym-risk atari-py
 RUN pip install gym-retro gym-tetris gym-sudoku
 
@@ -98,6 +98,7 @@ RUN apt-get -y autoclean
 # Config/Environment setup.
 COPY data/dot_bashrc /root/.bashrc
 COPY data/jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
+COPY data/dot_keras__keras.json /root/.keras/keras.json
 RUN jupyter nbextension enable --py widgetsnbextension
 RUN mkdir -p /root/.ipython/profile_default/startup/
 COPY data/notebook_init_loader.py /root/.ipython/profile_default/startup
