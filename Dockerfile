@@ -19,8 +19,8 @@ RUN rm /usr/local/bin/pip && ln -s `which pip3` /usr/local/bin/pip
 RUN pip install --upgrade pip
 
 
-# ImageMagick
-RUN aptitude install -y imagemagick
+# Image and Video
+RUN apt install -y imagemagick ffmpeg
 RUN rm /etc/ImageMagick-6/policy.xml
 COPY data/imagemagick_policy.xml /etc/ImageMagick-6/policy.xml
 
