@@ -35,7 +35,7 @@ RUN pip install --upgrade git+https://github.com/statsmodels/statsmodels
 
 # ML/DL/RL libraries.
 RUN pip install scikit-learn keras torch torchvision Theano
-RUN pip install gym gym-starter-kit gym-risk atari-py
+RUN pip install gym gym[box2d] gym-starter-kit gym-risk atari-py
 RUN pip install gym-retro gym-tetris gym-sudoku
 
 
