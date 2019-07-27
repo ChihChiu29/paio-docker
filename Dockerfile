@@ -85,7 +85,7 @@ RUN GK_VERSION=$(if [ ${GECKODRIVER_VERSION:-latest} = "latest" ]; then echo "0.
 
 # Misc
 RUN apt install -y graphviz libgraphviz-dev cron
-RUN pip install graphviz ipywidgets
+RUN pip install graphviz ipywidgets snakeviz
 # Some latex packages that help to export notebooks into pdfs.
 RUN apt install -y apt texlive-xetex
 
