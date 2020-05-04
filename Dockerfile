@@ -45,6 +45,10 @@ RUN apt install -y tesseract-ocr-eng
 RUN pip install pytesseract
 
 
+# Web Services
+RUN pip install pytrends
+
+
 # Other Python libraries
 RUN pip install flask retrying joblib absl-py cloudpickle jsonpickle JSAnimation websocket-client nose
 RUN apt install -y python3-bs4 inotify-tools
