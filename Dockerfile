@@ -54,6 +54,8 @@ RUN pip install pytesseract
 RUN pip install pytrends
 ## Twitter
 RUN pip install GetOldTweets3 tweepy
+## Others
+RUN pip install news-please google
 
 
 # Other Python libraries
