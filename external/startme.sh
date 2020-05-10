@@ -26,6 +26,9 @@ then
 elif [ $# == 1 ] && [ $1 == "lab" ]
 then
     jupyter lab --port=8888 --allow-root
+elif [ $# == 1 ] && [ $1 == "notebook" ]
+then
+    jupyter notebook --port=8888 --allow-root
 else
     exec "$@"
 fi
