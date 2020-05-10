@@ -35,23 +35,32 @@ RUN pip install --upgrade git+https://github.com/statsmodels/statsmodels
 
 # ML/DL/RL libraries.
 RUN pip install scikit-learn keras torch torchvision Theano
+## https://gym.openai.com/
 RUN pip install gym gym[box2d] gym-starter-kit gym-risk atari-py
 RUN pip install gym-retro gym-tetris gym-sudoku
 
 
 # Text Processing
-RUN pip install spacy nltk textblob tweepy vaderSentiment googletrans
+RUN pip install spacy nltk textblob googletrans
+## Sentiment analysis
+RUN pip install vaderSentiment
+## OCR
 RUN apt install -y tesseract-ocr-eng
 RUN pip install pytesseract
 
 
-# Web Services
+# Data source and Web Services
+## Googel Trends
 RUN pip install pytrends
+## Twitter
+RUN pip install GetOldTweets3 tweepy
 
 
 # Other Python libraries
 RUN pip install flask retrying joblib absl-py cloudpickle jsonpickle JSAnimation websocket-client nose
 RUN apt install -y python3-bs4 inotify-tools
+## https://huggingface.co/models
+RUN pip install transformers
 
 
 # PyCharm
