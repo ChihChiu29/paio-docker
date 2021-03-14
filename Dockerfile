@@ -53,7 +53,8 @@ RUN pip install pytesseract
 ## Googel Trends
 RUN pip install pytrends
 ## Twitter
-RUN pip install GetOldTweets3 tweepy
+RUN pip install tweepy
+RUN pip install --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
 ## Others
 RUN pip install news-please google
 
