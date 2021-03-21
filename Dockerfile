@@ -61,6 +61,7 @@ RUN pip install news-please google
 
 # Other Python libraries
 RUN pip install flask retrying joblib absl-py cloudpickle jsonpickle JSAnimation websocket-client nose
+RUN pip install nest-asyncio
 RUN apt install -y python3-bs4 inotify-tools
 ## https://huggingface.co/models
 RUN pip install transformers
